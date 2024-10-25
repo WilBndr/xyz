@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Week;
 use App\Models\Track;
 use App\Players\Player;
@@ -35,17 +36,8 @@ class TrackController extends Controller
      */
     public function create(UserService $user): View
     {
-        $categories = [
-            'Soul',
-            'Ambient',
-            'Pop',
-            'Rap',
-            'Funk',
-            'Rock',
-            'Reggae / Dub',
-            'Techno',
-            'Electro'
-        ];
+
+        $categories = Category::all();
 
         return view('app.tracks.create', [
             'week' => Week::current(),
@@ -84,6 +76,7 @@ class TrackController extends Controller
             $track->player = $details->player_id;
             $track->player_track_id = $details->track_id;
             $track->player_thumbnail_url = $details->thumbnail_url;
+            $track->category_id = $request->input('category_id');
 
             // Publish track
             $track->save();

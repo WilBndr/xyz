@@ -35,12 +35,6 @@
                 <p class="error-message">{{ $message }}</p>
                 @enderror
 
-                <div class="submit">
-                    @csrf
-                    <button type="submit" class="primary">Envoyer</button>
-                    <div>{{ trans_choice('tracks.remaining', $remaining_tracks_count) }}</div>
-                </div>
-
                 <div>
                     <label for="category_id">Catégorie</label>
                     <select name="category_id" id="category_id">
@@ -50,6 +44,14 @@
                         @endforeach
                     </select>
                 </div>
+
+                <div class="submit">
+                    @csrf
+                    <button type="submit" class="primary">Envoyer</button>
+                    <div>{{ trans_choice('tracks.remaining', $remaining_tracks_count) }}</div>
+                </div>
+
+
 
                 @error('category_id')
                 <p class="error-message">{{ $message }}</p>

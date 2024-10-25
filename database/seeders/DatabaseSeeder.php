@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
         $this->call(WeekSeeder::class);
 
         // Créer les catégories
-        $this->call(CategorySeeder::class);
+        //$this->call(CategorySeeder::class);
 
         // Create content
         User::factory()
