@@ -17,8 +17,12 @@ class CategoryController
 
     public function show(Category $category)
     {
+
+        $tracks = $category->tracks()->paginate(10);
+
         return view('app.categories.show', [
             'category' => $category,
+            'tracks' => $tracks,
         ]);
     }
 
