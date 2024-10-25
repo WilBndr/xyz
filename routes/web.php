@@ -38,5 +38,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('app.profile.edit');
     Route::post('/profile', [ProfileController::class, 'update'])->name('app.profile.update');
 
+    // categories
+    Route::get('/categories', [CategoryController::class, 'index'])->name('app.categories.index');
+
     Route::fallback(fn () => abort(404));
 });

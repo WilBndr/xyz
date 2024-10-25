@@ -23,6 +23,12 @@
                 <dd>
                     {!! $embed !!}
                 </dd>
+
+                <dt>Catégorie</dt>
+                <dd>
+                    <a href="{{ route('app.categories.show', ['category' => $track->category->id]) }}" class="link">{{ $track->category->name }}</a>
+                </dd>
+
             </dl>
         </section>
 
