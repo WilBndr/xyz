@@ -41,6 +41,7 @@ Route::middleware('auth')->group(function () {
 
     // categories
     Route::get('/categories', [CategoryController::class, 'index'])->name('app.categories.index');
+    Route::get('/categories/{category}', [CategoryController::class, 'show'])->name('app.categories.show');
 
     Route::fallback(fn () => abort(404));
 });
