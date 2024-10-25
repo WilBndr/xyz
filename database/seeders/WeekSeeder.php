@@ -13,7 +13,7 @@ class WeekSeeder extends Seeder
      */
     public function __construct(
         protected WeekService $service
-    ) { 
+    ) {
         //
     }
 
@@ -22,6 +22,9 @@ class WeekSeeder extends Seeder
      */
     public function run(): void
     {
+        // Supprimer toutes les données existantes
+        Week::query()->delete();
+
         $weeks = $this->service
             ->previousUntil(6, now()->addYear())
             ->map(fn ($period) => [

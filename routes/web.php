@@ -1,13 +1,14 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\WeekController;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\TrackController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\TrackController;
+use App\Http\Controllers\WeekController;
 use App\Http\Middleware\EnsureValidCodeMiddleware;
+use Illuminate\Support\Facades\Route;
 
 // Auth
 Route::get('/login', [LoginController::class, 'login'])->middleware('guest')->name('login');
